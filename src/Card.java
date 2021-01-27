@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Card {
     //These are the instance variables, they describe the
     //attributes that we want to model in the class.
@@ -31,8 +34,17 @@ public class Card {
         return suit;
     }
 
+    /**
+     * This method will validate that the argument is hearts, diamonds, spades or clubs
+     * and set the instance variable
+     * @param suit
+     */
     public void setSuit(String suit) {
-        this.suit = suit;
+        List<String> validSuits = Arrays.asList("hearts","diamonds","spades","clubs");
+        if (validSuits.contains(suit))
+            this.suit = suit;
+        else
+            throw new IllegalArgumentException(suit + " is not valid, valid options are: "+validSuits);
     }
 
     public int getFaceValue() {
@@ -41,5 +53,10 @@ public class Card {
 
     public void setFaceValue(int faceValue) {
         this.faceValue = faceValue;
+    }
+
+    public String toString()
+    {
+        return faceName + " of " + suit;
     }
 }
