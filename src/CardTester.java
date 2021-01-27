@@ -49,5 +49,18 @@ public class CardTester {
 
         for (int i=0; i<myHand.size(); i+=2)
             System.out.println(myHand.get(i).getFaceValue() + 10);
+
+        DeckOfCards deck = new DeckOfCards();
+        System.out.printf("%nThe deck of cards has %d cards in it%n", deck.getNumOfCardsInDeck());
+
+        deck.shuffle();
+
+        System.out.println("Here are the first 5 cards:");
+        System.out.println(deck.dealTopCard());
+        System.out.println(deck.dealTopCard());
+        System.out.println(deck.dealTopCard());
+        System.out.println(deck.dealTopCard());
+        System.out.println(deck.dealTopCard());
+        System.out.printf("The deck of cards has %d cards in it%n", deck.getNumOfCardsInDeck());
     }
 }
